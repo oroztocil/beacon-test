@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Beacon Event Test</title>
+</head>
+<body>
+  <h1>Beacon Event Test Page</h1>
+  <script>
+    function sendBeaconForEvent(eventName) {
+      navigator.sendBeacon(`https://beacon-test.free.beeceptor.com/${eventName}`);
+    }
+
+    document.addEventListener('visibilitychange', function() {
+      sendBeaconForEvent('visibilitychange');
+    });
+
+    window.addEventListener('pagehide', function() {
+      sendBeaconForEvent('pagehide');
+    });
+
+    window.addEventListener('unload', function() {
+      sendBeaconForEvent('unload');
+    });
+  </script>
+</body>
+</html>
